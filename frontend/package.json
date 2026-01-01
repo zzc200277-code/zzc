@@ -1,0 +1,17 @@
+
+{
+  "name": "sms-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "axios": "^1.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-vue": "^4.0.0"
+  }
+}
