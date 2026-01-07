@@ -6,7 +6,7 @@ export const courses = ref([
   { id: 2, name: '大学英语' },
   { id: 3, name: '计算机基础' }
 ])
-
+1
 /* 学生数据（重点：courses 是数组，存课程 id） */
 export const students = ref([
   {
