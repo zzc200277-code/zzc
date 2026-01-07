@@ -11,6 +11,7 @@
 import { useRouter } from 'vue-router'
 import { logout } from '../store/auth'
 
+
 const router = useRouter()
 const username = localStorage.getItem('username') || '未知用户'
 
@@ -18,6 +19,7 @@ const handleLogout = () => {
   logout()
   router.replace('/login') // ✅ 关键：replace，不是 push
 }
+
 </script>
 
 <style scoped>
