@@ -1,18 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
 import Students from '../views/Students.vue'
-import AddStudent from '../views/AddStudent.vue'  // 添加的页面
-import Courses from '../views/Courses.vue'  // 添加的页面
-import Profile from '../views/Profile.vue'  // 添加的页面
+import Courses from '../views/Courses.vue'
+import Profile from '../views/Profile.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 const routes = [
-  { path: '/', name: 'home', component: Home },
-  { path: '/login', name: 'login', component: Login },
-  { path: '/students', name: 'students', component: Students },
-  { path: '/add', name: 'add-student', component: AddStudent },  // 添加的页面路由
-  { path: '/courses', name: 'courses', component: Courses },  // 添加的页面路由
-  { path: '/profile', name: 'profile', component: Profile }  // 添加的页面路由
+  { path: '/login', component: Login },
+  { path: '/register', component: Register },
+
+  {
+    path: '/',
+    component: Home,
+    redirect: '/students',
+    children: [
+      { path: 'students', component: Students },
+      { path: 'courses', component: Courses },
+      { path: 'profile', component: Profile }
+    ]
+  }
 ]
 
 const router = createRouter({
