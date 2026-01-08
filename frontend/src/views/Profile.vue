@@ -3,23 +3,26 @@
     <h2>个人中心</h2>
     <p>当前登录用户：{{ username }}</p>
 
-    <button class="logout" @click="handleLogout">退出登录</button>
+    <button class="logout" @click="handleLogout">
+      退出登录
+    </button>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { logout } from '../store/auth'
-
 
 const router = useRouter()
-const username = localStorage.getItem('username') || '未知用户'
+
+// ✅ 和登录时保存的字段一致
+const username = localStorage.getItem('currentUser') || '未登录'
 
 const handleLogout = () => {
-  logout()
-  router.replace('/login') // ✅ 关键：replace，不是 push
-}
+  localStorage.removeItem('isLoggedIn')
+  localStorage.removeItem('currentUser')
 
+  router.replace('/login')
+}
 </script>
 
 <style scoped>
@@ -29,7 +32,6 @@ const handleLogout = () => {
   border-radius: 12px;
   max-width: 500px;
 }
-
 .logout {
   margin-top: 20px;
   padding: 8px 16px;

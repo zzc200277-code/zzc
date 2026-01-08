@@ -14,14 +14,15 @@ const routes = [
   {
     path: '/',
     component: Home,
-    redirect: '/students',
     children: [
+      { path: '', redirect: '/students' }, // 默认页
       { path: 'students', component: Students },
       { path: 'courses', component: Courses },
       { path: 'profile', component: Profile }
     ]
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),

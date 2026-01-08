@@ -35,7 +35,9 @@ const login = () => {
   ) {
     localStorage.setItem('isLoggedIn', 'true')
     localStorage.setItem('currentUser', user.username)
-    router.push('/')
+
+    // ✅ 正确跳转方式
+    router.replace('/')
   } else {
     alert('账号或密码错误')
   }
@@ -45,3 +47,29 @@ const goRegister = () => {
   router.push('/register')
 }
 </script>
+
+<style scoped>
+.card {
+  width: 360px;
+  margin: 100px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+}
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+}
+button {
+  width: 100%;
+  padding: 8px;
+}
+.switch {
+  margin-top: 10px;
+  color: #409eff;
+  cursor: pointer;
+  text-align: center;
+}
+</style>
